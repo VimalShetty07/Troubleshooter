@@ -1,16 +1,13 @@
-const express = require('express');
-const app = express();
-
+const app =require('./app');
+const connectDatabase = require('./database/mongoDb');
 
 //config
 const dotenv = require('dotenv');
 dotenv.config({path:'backend/.env'});
 
 
-//routes
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+//Connect database
+connectDatabase();
 
 
 
