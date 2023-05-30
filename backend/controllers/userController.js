@@ -1,4 +1,5 @@
 const user = require("../models/userModel");
+const sendToken = require("../utils/jwtToken");
 
 //Register a user
 exports.registerUser = async (req, res) => {
@@ -6,11 +7,8 @@ exports.registerUser = async (req, res) => {
 		const { name, email, password } = req.body;
 		const users = await user.create({ name, email, password });
 
-		const token = users.getJWTToken()
-		res.status(200).json({
-			success: true,
-			token,
-		});
+		
+		sendToken(users,200,res)
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}
@@ -41,11 +39,8 @@ exports.loginUser = async(req,res,next) => {
 		if (!isPAsswordMatched) {
 			return res.status(500).json({ message: "Email or Password is wrong" });
 		}
-		const token = users.getJWTToken()
-		return res.status(200).json({
-			success: true,
-			token,
-		})} catch(err){
+		return sendToken(users,200,res)
+		} catch(err){
 			res.status(500).json({
 				message: err.message
 			})
