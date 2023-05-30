@@ -4,9 +4,12 @@ const {getAllBlogs, createBlog, updateBlog, deleteBlog} = require("../controller
 
 
 
+
 router.route("/blogs").get(getAllBlogs)
 router.route("/blogs/new").post(createBlog)
 router.route("/blogs/:id").put(updateBlog).delete(deleteBlog)
+
+
 
 
 module.exports = router
