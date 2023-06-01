@@ -66,3 +66,18 @@ exports.logoutUser = async(req,res)=>{
 })
 }
 
+
+
+//User Details
+
+exports.getUserDetails = async(req,res,next)=>{
+	try{
+		
+	const users = await user.findById(req.user.id)
+	res.status(200).json({
+		success:true,
+		users
+	})}catch(err){
+		message:err.message
+	}
+}

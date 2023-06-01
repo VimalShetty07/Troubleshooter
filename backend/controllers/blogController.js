@@ -65,7 +65,7 @@ exports.deleteBlog = async (req, res) => {
 //Get blog Details
 exports.getBlogDetails = async (req, res, next) => {
 	try {
-		const blog = await blogs.findById(req.paams.id);
+		const blog = await blogs.findById(req.params.id);
 		if (!blog) {
 			res.status(404).json({
 				success: false,
