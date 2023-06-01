@@ -11,6 +11,12 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required:[true,"Please select a content"]
 
+    },
+
+    user:{
+        type: mongoose.Schema.ObjectId,
+        ref:"User",
+        required: true
     }
 })
 

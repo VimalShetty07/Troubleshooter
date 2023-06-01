@@ -3,6 +3,9 @@ const blogs = require("../models/blogModels");
 //Create blog
 exports.createBlog = async (req, res, next) => {
   try{
+
+req.body.user = req.user.id
+
 	const blog = await blogs.create(req.body);
 	res.status(200).json({
 		success: true,
