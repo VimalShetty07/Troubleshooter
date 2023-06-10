@@ -1,0 +1,24 @@
+.blog {
+    
+    margin: 1vh 15vw;
+    padding: 20px;
+  }
+  
+  .blog-title {
+    font-size: 5vh;
+    font-weight: bold;
+    margin-bottom: 1vh;
+  }
+  
+  .blog-author {
+    font-size: 14px;
+    color: #4e4e4e;
+    margin-bottom: 1.5vh;
+  }
+  
+  .blog-content {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+  
